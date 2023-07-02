@@ -27,7 +27,7 @@ int main(void){
     //Conteo de peces que pasan debajo del submarino
     for(auxTime; auxTime > 0; auxTime--){
 
-        chance = rand() % 100 + 1;
+        chance = (rand() % 100) + 1;
 
         if(chance <= 50){
             printf("T ");
