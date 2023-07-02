@@ -9,7 +9,7 @@ int main(void){
 
     srand(time(NULL));
 
-    //Ingreso de del tiempo en segundos para el escaneo
+    //Tiempo de escaneo aleatorio
     timeScanning = (rand() % 100) + 1;
     auxTime = timeScanning;
     
