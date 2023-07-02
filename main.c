@@ -1,53 +1,68 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include "funciones.h"
 
 int main(void){
 
-    int chance, timeScanning, maxCadenaPeces = 0;
-    int contPeces = 0, contPecesSeguidos = 0, auxTime;
+    system("clear");
+
+    int timeScanning, auxTime;
+    //Variables para menu
+    int selector;
 
     srand(time(NULL));
 
-    //Ingreso de del tiempo en segundos para el escaneo
-    do
-    {
+    do{
 
-        printf("Ingrese el tiempo de escaneo: ");
-        scanf("%d", &timeScanning);
-        auxTime = timeScanning;
+        printf("---MENU---\n\n");
+        printf("1. Escaneo automatico\n2. Escaneo manual\n3. Salir\n\n");
+        scanf("%d", &selector);
+        system("clear");
 
-        if(auxTime <= 0){
-            printf("ERROR ingresa un valor positivo y mayor a cero\n\n");
+        switch(selector){
+        case 1:
+
+            printf("---ESCANEO AUTOMATICO---\n\n");
+            timeScanning = (rand() % 100) + 1;
+            conteoPeces(timeScanning);
             system("pause");
             system("clear");
+            break;
+        
+        case 2:
+
+            do
+            {
+
+                printf("---ESCANEO MANUAL---\n\n");
+                printf("Ingrese el tiempo de escaneo: ");
+                scanf("%d", &timeScanning);
+
+                if(timeScanning <= 0){
+                    printf("ERROR ingresa un valor positivo y mayor a cero\n\n");
+                    system("pause");
+                    system("clear");
+                }
+            }while(timeScanning <= 0);
+
+            conteoPeces(timeScanning);
+            system("pause");
+            system("clear");
+            break;
+        case 3:
+
+            printf("---SALIENDO---\n\n");
+            system("pause");
+            system("clear");        
+            break;
+        default:
+
+            printf("Opcion no valida\n\n");
+            system("pause");
+            system("clear");        
+            break;
         }
-    }while(auxTime <= 0);
-    
-    //Conteo de peces que pasan debajo del submarino
-    for(auxTime; auxTime > 0; auxTime--){
-
-        chance = (rand() % 100) + 1;
-
-        if(chance <= 50){
-            printf("T ");
-
-            if(contPecesSeguidos > maxCadenaPeces)
-                maxCadenaPeces = contPecesSeguidos;
-            
-            contPecesSeguidos = 0;
-        }else{
-
-            printf("P ");
-            contPeces++;
-            contPecesSeguidos++;
-        }
-    }
-    printf("F \n");
-    printf("Tiempo de escaneo: %d\n", timeScanning);
-    printf("Cantidad total de peces: %d\n", contPeces);
-    printf("Cantidad de peces seguidos: %d\n", maxCadenaPeces);
-
-    system("pause");
+    }while(selector != 3);
     return 0;
 }
