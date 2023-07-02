@@ -30,8 +30,4 @@ void conteoPeces(int timeScanning){
     printf("Tiempo de escaneo: %d\n", timeScanning);
     printf("Cantidad total de peces: %d\n", contPeces);
     printf("Cantidad de peces seguidos: %d\n", maxCadenaPeces);
-
-    
-    
-
 }
