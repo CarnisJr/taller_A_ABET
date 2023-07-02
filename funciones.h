@@ -1,0 +1,1 @@
+void conteoPeces(int timeScanning);
