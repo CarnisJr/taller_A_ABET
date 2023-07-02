@@ -10,19 +10,8 @@ int main(void){
     srand(time(NULL));
 
     //Ingreso de del tiempo en segundos para el escaneo
-    do
-    {
-
-        printf("Ingrese el tiempo de escaneo: ");
-        scanf("%d", &timeScanning);
-        auxTime = timeScanning;
-
-        if(auxTime <= 0){
-            printf("ERROR ingresa un valor positivo y mayor a cero\n\n");
-            system("pause");
-            system("clear");
-        }
-    }while(auxTime <= 0);
+    timeScanning = (rand() % 100) + 1;
+    auxTime = timeScanning;
     
     //Conteo de peces que pasan debajo del submarino
     for(auxTime; auxTime > 0; auxTime--){
@@ -30,8 +19,8 @@ int main(void){
         chance = (rand() % 100) + 1;
 
         if(chance <= 50){
-            printf("T ");
 
+            printf("T ");
             if(contPecesSeguidos > maxCadenaPeces)
                 maxCadenaPeces = contPecesSeguidos;
             
